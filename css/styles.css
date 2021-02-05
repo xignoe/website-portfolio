@@ -1,0 +1,267 @@
+/* Variables */
+:root {
+    --p-color: #2828c5;
+    --s-color: #7f28d6;
+    --yellow: #e7bf47;
+    --light-yellow: #fbfdba;
+    --orange: #f75f0e;
+    --font-pad-small: 17px;
+    --transform-40: 40px;
+}
+
+
+/* set box-sizing to border-box */
+
+* {
+    box-sizing: border-box;
+}
+
+/* body style */
+body {
+    font-family: 'Lato', 'sans-serif';
+    font-weight: 400;
+    font-size: var(--font-pad-small);
+    line-height: 1.6;
+}
+
+/* heading style */
+h1 {
+    font-size: 28px;
+    font-weight: 690;
+}
+
+/* unvisited links */
+
+a {
+    color: var(--p-color);
+}
+
+/* visited links */
+
+a:visited {
+    color: var(--s-color);
+}
+
+/* hover and focus state */
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+/* active link */
+
+a:active { 
+    color: var(--light-yellow)
+}
+
+/* button style */
+
+button {
+    border: none;
+    font-family: inherit;
+    background-color: var(--p-color);
+    color: var(--light-yellow);
+    text-decoration: none;
+    padding: 9px;
+    border-radius: 2px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+/* button hover and focus style */
+
+button:hover, button:focus {
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+/* header formatting */
+
+.page-header {
+    display: flex;
+    width: 100%;
+    padding: var(--font-pad-small);
+}
+
+.page-header__item {
+    flex: 0 1 150px;
+}
+
+.page-header .page-header__item:last-child {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.navigation-list {
+    list-style-type: none;
+}
+
+.navigation-list li {
+    display: inline-block;
+    margin-left: var(--font-pad-small);
+}
+
+.navigation-list__item--active {
+    text-decoration: none;
+}
+
+.profile {
+    max-width: 325px;
+    margin: 0 auto;
+}
+
+.profile__portrait {
+    float: left;
+    width: 200px;
+    margin-right: 0px;
+    border-radius: 50%;
+}
+
+/* footer formatting */
+
+.page-footer {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+
+/* work formatting */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: var(--font-pad-small);
+}
+
+.grid__item {
+    display: inline-block;
+    width: 33%;
+    background-color:lightgrey;
+}
+
+
+
+@supports (display: grid) {
+    .grid {
+      display: grid;
+      /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: var(--font-pad-small);
+      margin: 0;
+    }
+
+    .grid__item {
+      background-color: var(--light-yellow);
+      width: auto;
+      min-height: auto;
+      margin: 0;
+    }
+}
+
+/* sun animation */
+
+@keyframes color-change {
+    0% {
+        fill: var(--yellow);
+    }
+    50% {
+        fill: var(--light-yellow);
+    }
+    100% {
+        fill: var(--orange);
+    }
+}
+
+.sun {
+    animation-duration: 3s;
+    animation-name: color-change;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* cloud animations */
+
+@keyframes cloud-move {
+    from {transform: translate(0, var(--transform-40));}
+    to {transform: translate(150px, var(--transform-40));}
+}
+
+.cloud-front {
+    animation: 29s cloud-move infinite alternate linear;
+}
+
+@keyframes cloud-move-reverse {
+    from {transform: translate(440px, var(--transform-40));}
+    to {transform: translate(90px, var(--transform-40));}
+}
+
+.cloud-back {
+    animation: 30s cloud-move-reverse infinite alternate linear;
+}
+
+/* media query */
+
+/* max 500px */ 
+@media all and (max-width: 500px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    h1 {
+        font-size: var(--font-pad-small);
+    }
+}
+
+/* 500px -> 750px */
+@media all and (max-width: 500px) and (max-width: 750px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    h1 {
+        font-size: var(--font-pad-small);
+    }
+}
+
+/* other queries */
+
+@media all and (max-width: 750px) {
+    .grid {
+        grid-gap: 10px;
+    }
+    .grid__item:last-child {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+    }
+    h1 {
+        font-size: var(--font-pad-small);
+    }
+
+    .page-header {
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .page-header__logo {
+        text-align: center;
+    }
+
+    .page-header .page-header__item .navigation-list {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .page-body__item {
+        height: 250px;
+    }
+
+
+    .profile {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+}

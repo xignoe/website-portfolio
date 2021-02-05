@@ -1,0 +1,322 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+/* Variables */
+
+
+/* set box-sizing to border-box */
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/* body style */
+body {
+    font-family: 'Lato', 'sans-serif';
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* heading style */
+h1 {
+    font-size: 28px;
+    font-weight: 690;
+}
+
+/* unvisited links */
+
+a {
+    color: #2828c5;
+}
+
+/* visited links */
+
+a:visited {
+    color: #7f28d6;
+}
+
+/* hover and focus state */
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+/* active link */
+
+a:active { 
+    color: #fbfdba
+}
+
+/* button style */
+
+button {
+    border: none;
+    font-family: inherit;
+    background-color: #2828c5;
+    color: #fbfdba;
+    text-decoration: none;
+    padding: 9px;
+    border-radius: 2px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+/* button hover and focus style */
+
+button:hover, button:focus {
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+/* header formatting */
+
+.page-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 17px;
+}
+
+.page-header__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 150px;
+            flex: 0 1 150px;
+}
+
+.page-header .page-header__item:last-child {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    text-align: right;
+}
+
+.navigation-list {
+    list-style-type: none;
+}
+
+.navigation-list li {
+    display: inline-block;
+    margin-left: 17px;
+}
+
+.navigation-list__item--active {
+    text-decoration: none;
+}
+
+.profile {
+    max-width: 325px;
+    margin: 0 auto;
+}
+
+.profile__portrait {
+    float: left;
+    width: 200px;
+    margin-right: 0px;
+    border-radius: 50%;
+}
+
+/* footer formatting */
+
+.page-footer {
+    clear: both;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  
+
+/* work formatting */
+
+.grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 17px 1fr 17px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 17px;
+}
+
+.grid__item {
+    display: inline-block;
+    width: 33%;
+    background-color:lightgrey;
+}
+
+
+
+@supports (display: grid) {
+    .grid {
+      display: -ms-grid;
+      display: grid;
+      /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
+      -ms-grid-columns: 1fr 17px 1fr 17px 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 17px;
+      margin: 0;
+    }
+
+    .grid__item {
+      background-color: #fbfdba;
+      width: auto;
+      min-height: auto;
+      margin: 0;
+    }
+}
+
+/* sun animation */
+
+@-webkit-keyframes color-change {
+    0% {
+        fill: #e7bf47;
+    }
+    50% {
+        fill: #fbfdba;
+    }
+    100% {
+        fill: #f75f0e;
+    }
+}
+
+@keyframes color-change {
+    0% {
+        fill: #e7bf47;
+    }
+    50% {
+        fill: #fbfdba;
+    }
+    100% {
+        fill: #f75f0e;
+    }
+}
+
+.sun {
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-animation-name: color-change;
+            animation-name: color-change;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+/* cloud animations */
+
+@-webkit-keyframes cloud-move {
+    from {-webkit-transform: translate(0, 40px);transform: translate(0, 40px);}
+    to {-webkit-transform: translate(150px, 40px);transform: translate(150px, 40px);}
+}
+
+@keyframes cloud-move {
+    from {-webkit-transform: translate(0, 40px);transform: translate(0, 40px);}
+    to {-webkit-transform: translate(150px, 40px);transform: translate(150px, 40px);}
+}
+
+.cloud-front {
+    -webkit-animation: 29s cloud-move infinite alternate linear;
+            animation: 29s cloud-move infinite alternate linear;
+}
+
+@-webkit-keyframes cloud-move-reverse {
+    from {-webkit-transform: translate(440px, 40px);transform: translate(440px, 40px);}
+    to {-webkit-transform: translate(90px, 40px);transform: translate(90px, 40px);}
+}
+
+@keyframes cloud-move-reverse {
+    from {-webkit-transform: translate(440px, 40px);transform: translate(440px, 40px);}
+    to {-webkit-transform: translate(90px, 40px);transform: translate(90px, 40px);}
+}
+
+.cloud-back {
+    -webkit-animation: 30s cloud-move-reverse infinite alternate linear;
+            animation: 30s cloud-move-reverse infinite alternate linear;
+}
+
+/* media query */
+
+/* max 500px */ 
+@media all and (max-width: 500px) {
+    .grid {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+    h1 {
+        font-size: 17px;
+    }
+}
+
+/* 500px -> 750px */
+@media all and (max-width: 500px) and (max-width: 750px) {
+    .grid {
+        -ms-grid-columns: 1fr 17px 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+    h1 {
+        font-size: 17px;
+    }
+}
+
+/* other queries */
+
+@media all and (max-width: 750px) {
+    .grid {
+        grid-gap: 10px;
+    }
+    .grid__item:last-child {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+    }
+    h1 {
+        font-size: 17px;
+    }
+
+    .page-header {
+        height: 120px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+
+    .page-header__logo {
+        text-align: center;
+    }
+
+    .page-header .page-header__item .navigation-list {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .page-body__item {
+        height: 250px;
+    }
+
+
+    .profile {
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+
+}
