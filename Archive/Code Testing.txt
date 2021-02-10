@@ -1,0 +1,1 @@
+Linters used - stylelint with Visual Studio Code. W3C validator check all passed. No issues with cross browser testing.
